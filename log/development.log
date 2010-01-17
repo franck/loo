@@ -1,0 +1,47 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100117112551)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) NOT NULL, "crypted_password" varchar(255) NOT NULL, "password_salt" varchar(255) NOT NULL, "persistence_token" varchar(255) NOT NULL, "single_access_token" varchar(255) NOT NULL, "perishable_token" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'franck.dagostini@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '3636aecd00f75dc99cfc098775e670b31e74967b9e9c3a5a753d353a22d0b2a558e1d669890f5f243e4f3bc57d79792a62a464500f1d4cd76227b9d9801bf6c0') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'zdSomdY3Sgun3XvOat7W') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'franck.dagostini@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '3636aecd00f75dc99cfc098775e670b31e74967b9e9c3a5a753d353a22d0b2a558e1d669890f5f243e4f3bc57d79792a62a464500f1d4cd76227b9d9801bf6c0') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'zdSomdY3Sgun3XvOat7W') LIMIT 1[0m
+  [4;35;1mUser Create (0.1ms)[0m   [0mINSERT INTO "users" ("updated_at", "crypted_password", "single_access_token", "perishable_token", "password_salt", "persistence_token", "email", "created_at") VALUES('2010-01-17 11:25:56', 'c946564e256192e438903885d6ad29443b27c2b03b47157743b4ccafce99af93ba9d7acd7a4ba13aacef2d80b3250f33a3a769cfac4f75adf4cfe46c3e1b5fe1', 'zdSomdY3Sgun3XvOat7W', 'Gs4TP-ytvfFKjzYRQPXI', 'I5fz2FefvTdDTYCeaWU5', '3636aecd00f75dc99cfc098775e670b31e74967b9e9c3a5a753d353a22d0b2a558e1d669890f5f243e4f3bc57d79792a62a464500f1d4cd76227b9d9801bf6c0', 'franck.dagostini@gmail.com', '2010-01-17 11:25:56')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100117112551')[0m
+Migrating to CreateRoles (20100117112552)
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(40), "authorizable_type" varchar(40), "authorizable_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCREATE TABLE "roles_users" ("user_id" integer, "role_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'franck.dagostini@gmail.com') LIMIT 1[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT * FROM "roles" WHERE (name = 'admin' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Create (0.1ms)[0m   [0;1mINSERT INTO "roles" ("name", "updated_at", "authorizable_type", "authorizable_id", "created_at") VALUES('admin', '2010-01-17 11:25:56', NULL, NULL, '2010-01-17 11:25:56')[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "roles_users" ("updated_at", "role_id", "user_id", "created_at") VALUES ('2010-01-17 11:25:56', 1, 1, '2010-01-17 11:25:56')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100117112552')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("roles")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("roles_users")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m

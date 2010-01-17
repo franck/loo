@@ -1,0 +1,27 @@
+<li>
+  <%= form.label :email, t('users.email') %>
+  <%= form.text_field :email %>
+</li>
+<li>
+  <%= form.label :password, form.object.new_record? ? nil : t('users.change_password') %>
+  <%= form.password_field :password %>
+</li>
+<li>
+  <%= form.label :password_confirmation, t('users.password_confirmation') %>
+  <%= form.password_field :password_confirmation %>
+</li>
+
+<% show_to :admin do %>
+<li>
+  <div class="col">
+    <% for role in Role::ROLES %>
+    <span>
+      <%= check_box_tag "roles[]", role, @user.role_objects.detect{|r| r.name == role }, :class => "checkbox" %>
+      <label class="choice"><%= t("users.roles_list.#{role}") %></label>
+    </span>
+    <% end %>
+  </div>
+</li>
+<% end %>
+
+

@@ -1,0 +1,81 @@
+fr:
+  users:
+    index_title: Liste des utilisateurs
+    add_title: Ajouter un utilisateur
+    edit_title: "Modifier : {{login}}"
+    crop_title: Recadrer votre photo
+    change_password_title: Changer votre mot de passe
+    
+    page_title:
+      index: Utilisateurs
+      change_password: Changer votre mot de passe
+      password_resets_edit_title: Changer votre mot de passe
+      crop: Recadrer votre photo
+      edit: "Modifier : {{login}}"
+      new: Ajouter un utilisateur
+    
+    roles: Roles  
+    roles_list:
+      admin: admin
+      user: utilisateur
+      
+    change_password: Modifier votre mot de passe
+    password: Mot de passe
+    password_confirmation: Confirmation du mot de passe
+    submit: Connexion
+    create: Créer
+    update: Mettre à jour
+    change: Change
+    crop: Recadrer
+
+    preview: aperçu
+    
+    search: Rechercher
+    
+    users_list: gérer les membres
+    score: Note
+    state: Statut
+    featured: à la une
+    featured_user: Membre à la une
+    all_title: Gestion des membres
+    users_intro: Rechercher parmis les <strong>{{number}} membres</strong> du réseau
+    more: voir la fiche complète
+    contact: contacter
+    no_result: aucun résultatp
+    
+    this_user_is_desactivated: Ce compte est désactivé !
+    
+    edit: modifier
+    add_user: ajouter un utilisateur
+    
+    delete_user: supprimer
+    actions: Actions
+    are_you_sure?: Etes vous sur ?
+    
+    login: Identifiant
+    email: Email
+    name: Nom
+    no_name: Aucun nom
+    firstname: Prénom
+    lastname: Nom
+    phone_numbers: Numéros de téléphone
+    phone: Fixe
+    mobile: Mobile
+    fax: Fax
+    jobtitle: Profession
+    status: Statut
+    avatar: Photo
+    instruct_picture: Vous aurez la possibilité de recadrer la photo
+    
+    category: Statut
+    categories:
+      employee: Salarié
+      partner: Partenaire
+      associate: Associé
+      freelance: Freelance
+      owner: Entrepreneur
+    
+    flash:
+      
+    error_messages:      
+      

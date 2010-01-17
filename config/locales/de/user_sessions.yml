@@ -1,0 +1,108 @@
+de:
+  users:
+    email: E-Mail
+    password: Passwort
+    password_confirmation: Passwort-Bestätigung
+    submit: Übernehmen
+    create: Erstellen
+    update: Aktualisieren
+    change: Ändern
+    crop: zuschneiden
+
+    preview: Vorschau
+    search: Suchen
+    
+    see_companies: Firmen-Kartei
+    
+    users_list: Mitglieder verwalten
+    score: Note
+    state: Status
+    featured: auf dem Titelblatt
+    featured_user: Mitglieder auf dem Titelblatt
+    users_intro: Unter den <strong>{{number}} Mitgliedern</strong> des Netzwerks suchen.
+    more: Gesamte Datei ansehen
+    contact: kontaktieren
+    no_result: kein Ergebnis
+    
+    this_user_is_desactivated: Dieses Konto ist deaktiviert!
+    
+    edit: Profil bearbeiten
+    edit_company: Unternehmen bearbeiten
+    manage_contact: Kontakte verwalten
+    manage_events: Events
+    add_event: ein Event hinzufügen
+    show_actions:
+      show: zeigen
+      hide: ausblenden
+    show_actions?: "Profil-Einstellungen"
+    add: Mitglied hinzufügen
+    
+    all_title: Mitgliederverwaltung
+    index_title: Mitglied
+    add_title: Ein Mitglied hinzufügen
+    crop_title: Ihr Bild zuschneiden
+    change_password_title: Ihr Passwort ändern
+    edit_title: Ihr Profil bearbeiten
+    
+    page_title:
+      all: Mitgliederverwaltung
+      index: Mitglieder des deutsch-französischen Netzwerks
+      change_password: Ihr Passwort ändern
+      password_resets_edit_title: Ihr Passwort ändern
+      crop: Ihr Bild zuschneiden 
+      edit: Ihr Profil bearbeiten
+      new: Ein Mitglied hinzufügen
+    
+    name: Name
+    no_name: Kein Name
+    firstname: Vorname
+    lastname: Nachname
+    phone_numbers: Telefonnummern
+    phone: Festnetz
+    mobile: Mobil
+    fax: Fax
+    jobtitle: Berufsbezeichnung
+    jobtitle_instruct:
+      fr: "Ex: avocat, recruteur, architecte etc."
+      de : "z.B.: Anwalt, Personalvermittler, Architekt, ..."
+    status: Status
+    description: Stellen Sie sich kurz vor
+    description_instruct: Hier können Sie Informationen eintragen, welche nicht auf die Dienstleistungen Ihres Unternehmens bezogen sind. Die hier eingetragenen Informationen sind privat. Sie können beispielsweise Ihren Werdegang sowie Ihre gesammelten Erfahrungen angeben, eine kurze Fassung Ihres Lebenslaufes, der nur für Mitglieder des Netzwerks zugänglich sein wird.
+    remain: verbleibend
+    characters: Zeichen
+    avatar: Bild
+    instruct_picture: Sie haben die Möglichkeit das Bild zuzuschneiden
+
+    are_you_sure?: Sind Sie sicher?
+    delete_user: entfernen
+    actions: Aktionen
+    
+    action_buttons:
+      show: Mitglied ansehen
+      contact: Kontaktieren     
+    
+    edit_in:
+      fr: das Profil auf Französisch bearbeiten
+      en: das Profil auf Englisch bearbeiten
+      de: das Profil auf Deutsch bearbeiten
+
+    editing_in:
+      fr: Die französischsprachige Version Ihres Profils bearbeiten.
+      en: Die englischsprachige Version Ihres Profils bearbeiten.
+      de: Die deutschsprachige Version Ihres Profils bearbeiten.
+    
+    category: Status
+    categories:
+      employee: Angestellter
+      partner: Partner
+      associate: Teilhaber
+      freelance: Freiberufler
+      owner: Inhaber
+    
+    flash:
+      member_added: Mitglied hinzugefügt
+      user_updated: "Ihr Profil wurde erfolgreich aktualisiert."
+      
+    error_messages:
+      firstname_presence: Der Vorname darf nicht leer stehen
+      lastname_presence: Der Nachname darf nicht leer stehen
