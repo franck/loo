@@ -7,7 +7,10 @@ class CreateUsers < ActiveRecord::Migration
       t.string    :persistence_token,   :null => false                # required
       t.string    :single_access_token, :null => false                # optional, see Authlogic::Session::Params
       t.string    :perishable_token,    :null => false                # optional, see Authlogic::Session::Perishability      
-
+      
+      t.string    :player_name
+      t.text      :sight
+      t.datetime  :sight_updated_at
       t.timestamps
     end
     User.create(:email => "franck.dagostini@gmail.com", :password => "admin", :password_confirmation => "admin")
