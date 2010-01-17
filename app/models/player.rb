@@ -5,20 +5,26 @@ class Player < ActiveRecord::Base
   
   def self.create_or_update(params={})
     player = Player.find_by_matricule(params[:matricule])
-    if player  
+    if player
+      logger.debug "UPDATE PLAYER : #{params.inspect}"
       player.update_attributes(params)
     else
+      logger.debug "CREATE PLAYER : #{params.inspect}"
       Player.create(params)
     end
   end
   
   def self.get_race(race)
-    case race
+    result = case race
     when "o"
       "olympien"
     when "n"
       "nain"
+    when "s"
+      "homme sauvage"
     end
+    logger.debug "RACE : #{race} / #{result}"
+    return result
   end
   
 end

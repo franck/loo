@@ -1,0 +1,22 @@
+<% title "Liste des personnages" %>
+
+<table>
+  <tr>
+    <th>Pseudo</th>
+    <th>Matricule</th>
+    <th>Race</th>
+    <th>X</th>
+    <th>Y</th>
+    <th>Mis à jour</th>
+  </tr>
+  <% for player in @players %>
+  <tr>
+    <td><%= player.name %></td>
+    <td><%= player.matricule %></td>
+    <td><%= player.race %></td>
+    <td><%= player.pos_x %></td>
+    <td><%= player.pos_y %></td>
+    <td><%= l(player.updated_at, :formats => :default) %></td>
+  </tr>
+  <% end %>
+</table>

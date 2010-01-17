@@ -6,8 +6,9 @@ table#s4 { width:auto; }
 #s4 .t4 { background:#666; }
 #s4 .t3 { background:green; }
 #s4 .t197 { background:green; }
-#s4 .n { background:red; }
+#s4 .n { background:red; color:#000; }
 #s4 .o { background:orange; }
+#s4 .s { background:#184429; color:#FFF; }
 
-.info { display:none; position:absolute; background:#FFF; border:1px solid #000; padding:10px; text-align:left; }
+.info { display:none; position:absolute; background:#FFF; border:1px solid #000; padding:10px; text-align:left; color:#000;}
 .info p { margin:0; }

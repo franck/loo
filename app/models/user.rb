@@ -72,7 +72,7 @@ class User < ActiveRecord::Base
           #logger.debug("PLAYER #{cols[c].text} in #{axis[c-1]} / #{ord[r-1]}")
           params = get_player_params(square)
           html_class = square["class"]
-          params.merge({ :race => Player.get_race(html_class), :html_class => html_class})
+          params.merge!({ :race => Player.get_race(html_class), :html_class => html_class})
           Player.create_or_update(params)
         else
           Field.create_or_update(axis[c-1],ord[r-1],square["class"])
