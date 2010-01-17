@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100117140716) do
+ActiveRecord::Schema.define(:version => 20100117140135) do
 
   create_table "fields", :force => true do |t|
     t.integer  "pos_x"
@@ -60,12 +60,12 @@ ActiveRecord::Schema.define(:version => 20100117140716) do
     t.string   "persistence_token",   :null => false
     t.string   "single_access_token", :null => false
     t.string   "perishable_token",    :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "player_name"
+    t.string   "matricule"
     t.text     "sight"
     t.datetime "sight_updated_at"
-    t.string   "matricule"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

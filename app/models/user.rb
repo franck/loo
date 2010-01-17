@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   end
   
   def filtered_sight
+    return if sight.nil?
     html = sight
     
     #remove &nbsp without ";"

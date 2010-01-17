@@ -1,5 +1,6 @@
 <% title "Paysage : #{@landscape.name}" %>
 
 <h1><%= @landscape.name %></h1>
+<p><%= link_to("Mettre à jour votre vue", edit_sight_user_path(current_user)) %></p>
 
 <%= display_map(@landscape, current_user) %>

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          jQuery Loo
 // @author        Franck
-// @include       http://legends-of-olympia.net/V2/jouer2.php
+// @include       http://*legends-of-olympia.net/V2/jouer2.php
 // ==/UserScript==
 
 
