@@ -17,7 +17,7 @@ test:
 
 production:
   adapter: mysql
-  database: loo
+  database: loo_production
   username: barouf
   password: thibamay
   host: mysql.barouf.info
