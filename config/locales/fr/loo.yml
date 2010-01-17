@@ -1,0 +1,14 @@
+fr:
+  loo:
+    menu:
+      landscapes: Paysages
+  
+    users:
+      page_title:
+        edit_sight: Mettre à jour votre vue
+      sight: Vue
+      player_name: Perso
+      matricule: Matricule
+      edit_sight: mettre à jour la vue
+      update_sight: Mettre à jour
+      copy_and_paste_sight_code: Copier coller ici le code HTML de votre vue

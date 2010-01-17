@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
   layout "admin"
-  before_filter :get_user, :only => [:edit, :update]
+  before_filter :get_user, :only => [:edit, :update, :edit_sight, :update_sight]
 
   access_control :debug => true do
     actions :index, :show do
       allow "user"
     end
     
-    actions :edit, :update do
+    actions :edit, :update, :edit_sight, :update_sight do
       allow "user", :if => :user_is_current_user?
     end
     
@@ -25,9 +25,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      @user.has_no_roles!
-      for role in params[:roles]
-        @user.has_role!(role)
+      if params[:roles]
+        @user.has_no_roles!
+        for role in params[:roles]
+          @user.has_role!(role)
+        end
       end
       redirect_to users_path
     else
@@ -44,16 +46,20 @@ class UsersController < ApplicationController
   
   def update
     if @user.update_attributes(params[:user])
-      @user.has_no_roles!
-      for role in params[:roles]
-        @user.has_role!(role)
+      if params[:roles]
+        @user.has_no_roles!
+        for role in params[:roles]
+          @user.has_role!(role)
+        end
       end
-      redirect_to users_path
+      redirect_to user_path(@user)
     else
       render :action => :edit
     end
   end
   
+  def edit_sight
+  end  
   
   protected
   

@@ -1,0 +1,15 @@
+<% title t('loo.users.page_title.edit_sight') %>
+
+<% form_for @user, :html => { :class => "standard" } do |f| %>
+  <%= f.error_messages %>
+  <ul>
+  <li>
+    <%= f.label :sight, t('loo.users.copy_and_paste_sight_code'), :class => "desc" %>
+    <textarea class="text" cols="80" id="user_sight" name="user[sight]" rows="20"></textarea>
+  </li>
+  <li>
+    <%= f.submit t('loo.users.update_sight') %>
+    <%= link_to t('cancel'), user_path(@user) %>
+  </li>
+  </ul>
+<% end %>

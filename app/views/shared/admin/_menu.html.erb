@@ -1,9 +1,10 @@
 <div id="menu" class="span-32">
   <ul id="nav">
+    <li><a href="/landscapes"><%= t('loo.menu.landscapes') %></a></li>
     <li><a href="/users"><%= t('admin.menu.users') %></a></li>
   </ul>
   <ul id="toplinks">
-    <li><%= t('admin.toplinks.logged_in_as') %> <%= link_to @current_user.email, account_path %></li>
+    <li><%= t('admin.toplinks.logged_in_as') %> <%= link_to current_user.email, account_path %></li>
     <li><a href="/logout"><%= t('authlogic.logout') %></a></li>
   </ul>
 </div>

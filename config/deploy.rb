@@ -1,13 +1,23 @@
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+set :application, "loo"
 
-set :scm, :subversion
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+set :scm, :git
+set :scm_command, "~/packages/bin/git" #updated version of git on server in user directory
+set :local_scm_command, "/usr/local/git/bin/git" #correct path to local  git
 
-role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-role :app, "your app-server here"                          # This may be the same as your `Web` server
-role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-role :db,  "your slave db-server here"
+set :repository,  "git@github.com:franck/loo.git"
+set :branch, "master"
+set :deploy_via, :remote_cache
+
+role :app, "loo.barouf.info"
+role :web, "loo.barouf.info"
+role :db, "loo.barouf.info", :primary => true
+
+desc "Restarting after deployment"
+task :after_deploy, :roles => [:app, :db, :web] do
+ run "sed 's/# ENV\\[/ENV\\[/g' #{deploy_to}/current/config/environment.rb > #{deploy_to}/current/config/environment.temp"
+ run "mv #{deploy_to}/current/config/environment.temp #{deploy_to}/current/config/environment.rb"
+end
+
 
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need

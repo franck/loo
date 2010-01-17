@@ -1,0 +1,10 @@
+h1 { font-size:1.4em; }
+
+table#s4 { width:auto; }
+#s4 tr td { width:35px; height:35px; border:1px solid #AAA; padding:0; text-align:center; }
+#s4 .unknown { background:#EEE; }
+#s4 .t4 { background:#666; }
+#s4 .t3 { background:green; }
+#s4 .t197 { background:green; }
+#s4 .n { background:red; }
+#s4 .o { background:orange; }
