@@ -20,12 +20,16 @@ module LandscapesHelper
       html << "<tr>"
       html << "<td>#{origin_y-i}</td>"
       for j in (0..size*2)
-        player = Player.find(:first, :conditions => ["pos_x = ? AND pos_y = ?", origin_x+j, origin_y-i])
+        player = Player.position(origin_x+j, origin_y-i).last
+        #player = Player.find(:first, :conditions => ["pos_x = ? AND pos_y = ?", origin_x+j, origin_y-i])
         field = Field.find(:first, :conditions => ["pos_x = ? AND pos_y = ?", origin_x+j, origin_y-i])
         if player
-          html << "<td class='#{player.html_class}'>#{player.matricule}</td>" 
+          html << "<td class='player #{player.html_class}'>"
+          html << player.matricule.to_s
+          html << "<div class='info' id='info-#{player.matricule}'><p><strong>#{player.name} (#{player.matricule})</strong></p>#{l(player.updated_at, :formats => :default)}</div>"
+          html << "</td>" 
         elsif field
-          html << "<td class='#{field.html_class}'></td>" 
+          html << "<td class='#{field.html_class}'></td>"
         else
           html << "<td class='unknown'>?</td>" 
         end

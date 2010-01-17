@@ -1,11 +1,14 @@
 class Player < ActiveRecord::Base
   
-  def self.create_or_update(mat,x,y,race)
-    player = Player.find_by_matricule(mat)
+  named_scope :last, lambda {|*args| { :limit => (args.first || 1), :order => "created_at desc" }}
+  named_scope :position, lambda {|*args| { :conditions => ["pos_x = ? AND pos_y = ?", args[0], args[1]]}}
+  
+  def self.create_or_update(params={})
+    player = Player.find_by_matricule(params[:matricule])
     if player  
-      player.update_attributes(:pos_x => x, :pos_y => y)
+      player.update_attributes(params)
     else
-      Player.create(:matricule => mat, :pos_x => x, :pos_y => y, :race => Player.get_race(race), :html_class => race)
+      Player.create(params)
     end
   end
   

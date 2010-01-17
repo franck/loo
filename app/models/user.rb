@@ -67,15 +67,35 @@ class User < ActiveRecord::Base
     for r in (1..ord.size)
       cols = rows[r].search("td")
       for c in (1..axis.size)
-        if cols[c].text =~ /\d/
-          logger.debug("PLAYER #{cols[c].text} in #{axis[c-1]} / #{ord[r-1]}")
-          Player.create_or_update(cols[c].text,axis[c-1],ord[r-1],cols[c]["class"])
+        square = cols[c]        
+        if player?(square)
+          #logger.debug("PLAYER #{cols[c].text} in #{axis[c-1]} / #{ord[r-1]}")
+          params = get_player_params(square)
+          html_class = square["class"]
+          params.merge({ :race => Player.get_race(html_class), :html_class => html_class})
+          Player.create_or_update(params)
         else
-          Field.create_or_update(axis[c-1],ord[r-1],cols[c]["class"])
-          logger.debug("FIELD #{cols[c]["class"]} in #{axis[c-1]} / #{ord[r-1]}")
+          Field.create_or_update(axis[c-1],ord[r-1],square["class"])
+          #logger.debug("FIELD #{cols[c]["class"]} in #{axis[c-1]} / #{ord[r-1]}")
         end
       end
     end
+  end
+  
+  def player?(square)
+    square["onclick"] =~ /voir/
+  end
+  
+  def get_player_params(square)
+    # voir(event,27,16,1884,'Sunagaara','[sous la protection d’elia furienoire] XD');
+    pattern = /voir\((.*);$/
+    result = square["onclick"].scan(pattern)
+    params = result[0][0].split(",")
+    pos_x = params[1]
+    pos_y = params[2]
+    matricule = params[3]
+    name = params[4].gsub(/'/){""}
+    return { :pos_x => pos_x, :pos_y => pos_y, :matricule => matricule, :name => name }
   end
   
 end
