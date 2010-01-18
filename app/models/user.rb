@@ -67,7 +67,12 @@ class User < ActiveRecord::Base
     for r in (1..ord.size)
       cols = rows[r].search("td")
       for c in (1..axis.size)
-        square = cols[c]        
+        square = cols[c]
+        # reset player position
+        player = Player.position(axis[c-1],ord[r-1]).last
+        player.update_attributes(:pos_x => "", :pos_y => "") if player
+        
+        
         if player?(square)
           #logger.debug("PLAYER #{cols[c].text} in #{axis[c-1]} / #{ord[r-1]}")
           params = get_player_params(square)
