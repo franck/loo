@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
     self.role_objects.map(&:name).join(", ")
   end
   
+  def filter_sight
+  end
+  
   def filtered_sight
     return if sight.nil?
     html = sight
@@ -42,12 +45,17 @@ class User < ActiveRecord::Base
     
     #remove img : <img onclick="reda("dam.php");"/>
     pattern = /<img(.[^>]*)>/
-    html = html.gsub(pattern){""}
-    
+    html = html.gsub(pattern){""}    
   end
   
   protected
+  before_save :filter_code
   after_save :update_landscape, :update_player_database
+  
+  def filter_code
+    pattern = /TABLE id.*<\/table>/
+    self.sight = sight.blank? ? "" : sight.scan(pattern)[0]
+  end
   
   def update_landscape
   end
