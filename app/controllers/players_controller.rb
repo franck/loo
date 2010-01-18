@@ -3,6 +3,7 @@ class PlayersController < ApplicationController
   
   access_control :debug => true do
     allow "user"
+    allow "admin"
   end
   
   def index

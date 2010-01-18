@@ -3,6 +3,7 @@ class LandscapesController < ApplicationController
   
   access_control :debug => true do
     allow "user"
+    allow "admin"
   end
   
   def index
