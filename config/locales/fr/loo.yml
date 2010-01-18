@@ -10,6 +10,7 @@ fr:
       sight: Vue
       player_name: Perso
       matricule: Matricule
+      perception: Perception
       edit_sight: mettre à jour la vue
       update_sight: Mettre à jour
       copy_and_paste_sight_code: Copier coller ici le code HTML de votre vue

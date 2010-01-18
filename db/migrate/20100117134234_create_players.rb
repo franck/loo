@@ -10,6 +10,9 @@ class CreatePlayers < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :players, :pos_x
+    add_index :players, :pos_y
+    add_index :players, :matricule
   end
 
   def self.down

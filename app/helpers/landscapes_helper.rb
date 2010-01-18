@@ -1,12 +1,11 @@
 module LandscapesHelper
   
-  def display_map(landscape, user)
+  def display_map(landscape, user, size=11)
     return if user.sight.blank?
     html = ""
     html << "<div id='sight'>"
     html << "<table id='s4' cellpadding='0' cellspacing='0' style='border-color:#ff9933;'>"
   
-    size = 11
     origin_x, origin_y = user.player.pos_x-size, user.player.pos_y+size
   
     html << "<tr>"

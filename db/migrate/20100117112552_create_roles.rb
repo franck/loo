@@ -12,8 +12,8 @@ class CreateRoles < ActiveRecord::Migration
       t.references  :role
       t.timestamps
     end
-    franck = User.find_by_email("franck.dagostini@gmail.com")
-    franck.has_role!("admin")
+    User.find_by_email("franck.dagostini@gmail.com").has_role!("admin")
+    User.all.each{|u| u.has_role!("user") }
   end
 
   def self.down

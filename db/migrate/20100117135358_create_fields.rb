@@ -9,6 +9,8 @@ class CreateFields < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :fields, :pos_x
+    add_index :fields, :pos_y
   end
 
   def self.down
