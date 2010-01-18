@@ -10,6 +10,9 @@ table#s4 { width:auto; }
 #s4 .o { background:orange; }
 #s4 .s { background:#184429; color:#FFF; }
 
+/* foret */
+.t121, .t122, .t123, .t124, .t125, .t129, .t131, .t132 { background: #072F00; }
+
 .info { display:none; position:absolute; background:#FFF; border:1px solid #000; padding:10px; text-align:left; color:#000;}
 .info p { margin:0; }
 

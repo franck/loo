@@ -54,7 +54,9 @@ class User < ActiveRecord::Base
   
   def filter_code
     pattern = /TABLE id.*<\/table>/
-    self.sight = sight.blank? ? "" : sight.scan(pattern)[0]
+    if !sight.blank? && sight =~ /s4/
+      self.sight = sight.scan(pattern)[0]
+    end
   end
   
   def update_landscape
