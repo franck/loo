@@ -7,7 +7,13 @@
   </tr>
   <% for user in @users %>
   <tr>
-    <td><%= link_to user.player_name, user_path(user) %></td>
+    <td>
+      <% if user.player %>
+        <%= link_to user.player_name, player_path(user.player.id) %>
+      <% else %>
+        <%= user.player_name %>
+      <% end %>
+    </td>
     <td><%= link_to user.email, user_path(user) %></td>
   </tr>
   <% end %>
