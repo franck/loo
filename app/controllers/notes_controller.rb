@@ -21,4 +21,13 @@ class NotesController < ApplicationController
     end
   end
   
+  def destroy
+    @note = Note.find(params[:id])
+    @note.destroy
+    respond_to do |format|
+      format.html { redirect_to player_url(@note.player) }
+      format.js
+    end
+  end
+  
 end

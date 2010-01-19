@@ -1,4 +1,4 @@
-ENV['GEM_PATH'] = File.expand_path('~/.gem') + ':/usr/lib/ruby/gems/1.8'
+#ENV['GEM_PATH'] = File.expand_path('~/.gem') + ':/usr/lib/ruby/gems/1.8'
 
 # Be sure to restart your server when you modify this file
 # Specifies gem version of Rails to use when vendor/rails is not present
@@ -11,6 +11,7 @@ Rails::Initializer.run do |config|
   config.gem 'acl9', :lib => 'acl9', :source => 'http://gemcutter.org'
   config.gem 'authlogic'
   config.gem 'nokogiri', :lib => false
+  config.gem 'will_paginate', :version => '~> 2.3.11', :source => 'http://gemcutter.org'
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.

@@ -9,6 +9,8 @@
 
 <h2>Notes</h2>
 
+<%= will_paginate @notes %>
+
 <ul class="notes">
   <% for note in @notes %>
     <%= display_note(note) %>

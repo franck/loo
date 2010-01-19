@@ -12,7 +12,7 @@ class PlayersController < ApplicationController
   
   def show
     @player = Player.find(params[:id])
-    @notes = Note.find(:all, :conditions => ["player_id = ?", @player.id], :limit => 5, :order => "created_at desc")
+    @notes = Note.paginate(:page => params[:page], :per_page => 10, :conditions => ["player_id = ?", @player.id], :order => "created_at desc")
   end
   
 end

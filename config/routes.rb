@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :players do |player|
     player.resources :notes
   end
+  map.resources :notes
 
   map.filter "locale"
 
