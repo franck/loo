@@ -4,7 +4,31 @@ $(function(){
     'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
   });
 
-  $('.new_note').ajaxForm({dataType: 'script', resetForm: true});
+
+  // Ajaxidy form new_note
+  var options = {
+    beforeSubmit:  showLoader, 
+    success:       hideLoader,
+    dataType: 'script', // to user create.js.erb
+    resetForm: true
+  };
+  $('.new_note').ajaxForm(options);
+  
+  function showLoader(formData, jqForm, options){
+    for (var i=0; i < formData.length; i++) { 
+      if (!formData[i].value) { 
+        alert('La note ne peut pas être vide'); 
+        return false; 
+      } 
+    }
+    $(".loader").show();
+    return true;
+  }
+  
+  function hideLoader(){
+    $(".loader").hide();
+    return true
+  }
   
   $(".info").find(".close").click(function(){
     $(".info").hide();
