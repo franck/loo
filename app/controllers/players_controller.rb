@@ -10,4 +10,9 @@ class PlayersController < ApplicationController
     @players = Player.all
   end
   
+  def show
+    @player = Player.find(params[:id])
+    @notes = Note.find(:all, :conditions => ["player_id = ?", @player.id], :limit => 5, :order => "created_at desc")
+  end
+  
 end

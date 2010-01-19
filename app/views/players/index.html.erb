@@ -11,7 +11,7 @@
   </tr>
   <% for player in @players %>
   <tr>
-    <td><%= player.name %></td>
+    <td><%= link_to player.name, player_url(player) %></td>
     <td><%= player.matricule %></td>
     <td><%= player.race %></td>
     <td><%= player.pos_x %></td>

@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :landscapes
-  map.resources :players
+  map.resources :players do |player|
+    player.resources :notes
+  end
 
   map.filter "locale"
 

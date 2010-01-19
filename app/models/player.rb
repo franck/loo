@@ -1,4 +1,5 @@
 class Player < ActiveRecord::Base
+  has_many :notes
   
   named_scope :last, lambda {|*args| { :limit => (args.first || 1), :order => "created_at desc" }}
   named_scope :position, lambda {|*args| { :conditions => ["pos_x = ? AND pos_y = ?", args[0], args[1]]}}

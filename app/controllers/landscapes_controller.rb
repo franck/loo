@@ -8,6 +8,7 @@ class LandscapesController < ApplicationController
   
   def index
     @landscape = Landscape.first
+    @note = current_user.notes.build
   end
   
 end

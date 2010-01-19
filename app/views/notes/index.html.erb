@@ -1,0 +1,11 @@
+<% title "Notes de #{@player.name}" %>
+
+<h1>Note de <%= @player.name %></h1>
+
+<table>
+  <% for note in @player.notes %>
+  <tr>
+    <td><%= note.content %></td>
+  </tr>
+  <% end %>
+</table>

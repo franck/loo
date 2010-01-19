@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user_session, :current_user
   filter_parameter_logging :password, :password_confirmation
+  
+  before_filter :store_location
 
   private
   
@@ -58,9 +60,11 @@ class ApplicationController < ActionController::Base
 
   def store_location
     session[:return_to] = request.request_uri
+    logger.debug "STORE : #{session[:return_to]}"
   end
 
   def redirect_back_or_default(default)
+    logger.debug "REDIRECT TO : #{session[:return_to]} or #{default}"
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
   end

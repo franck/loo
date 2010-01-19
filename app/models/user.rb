@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :notes
+  
   acts_as_authorization_subject
   acts_as_authentic do |c|
     acts_as_authentic

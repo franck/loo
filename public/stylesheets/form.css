@@ -245,7 +245,7 @@ form.standard .fieldWithErrors input.text { border:2px solid red;}
 
 /* =flash
 -------------------------------------------------*/
-#flash { float:left; width:100%; margin:10px 0; }
+#flash { float:left; width:100%; margin:0; }
 #flash_notice { margin:10px 20px; padding:1em; border:2px solid #6C6; background-color:#CFC; color:#444; }
 #flash_error { margin:1em; padding:1em; border:2px solid #900; background-color:#EBCCCC; color:#900; }
 

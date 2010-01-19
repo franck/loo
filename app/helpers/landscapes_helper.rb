@@ -25,7 +25,7 @@ module LandscapesHelper
         if player
           html << "<td class='player #{player.html_class}'>"
           html << player.matricule.to_s
-          html << "<div class='info' id='info-#{player.matricule}'><p><strong>#{player.name} (#{player.matricule})</strong></p>#{l(player.updated_at, :formats => :default)}</div>"
+          html << add_info(player)
           html << "</td>" 
         elsif field
           html << "<td class='#{field.html_class}'></td>"
@@ -38,5 +38,23 @@ module LandscapesHelper
   
     html << "</table>"
     html << "</div>"    
+  end
+  
+  def add_info(player)
+    html = ""
+    html << "<div class='info' id='info-#{player.matricule}'>"
+    html << "<a class='close' href='#'>[ X ]</a>"
+    html << "<p><strong>#{link_to(player.name, player_url(player))} (#{player.matricule})</strong></p>"
+    html << "<p>Mis à jour : #{l(player.updated_at, :formats => :default)}</p>"
+    html << "<ul class='notes'>"
+    notes = Note.find(:all, :conditions => ["player_id = ?", player.id], :limit => 5, :order => "created_at desc")
+    logger.debug "NOTES : #{notes.inspect}"
+    for note in notes
+      html << "<li>#{display_note(note)}</li>"
+    end
+    html << "</ul>"
+    html << render( :partial => "notes/new", :locals => { :player_id => player.id })
+    html << "</div>"
+    return html
   end
 end
