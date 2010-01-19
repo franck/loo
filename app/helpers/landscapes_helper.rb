@@ -50,7 +50,7 @@ module LandscapesHelper
     notes = Note.find(:all, :conditions => ["player_id = ?", player.id], :limit => 5, :order => "created_at desc")
     logger.debug "NOTES : #{notes.inspect}"
     for note in notes
-      html << "<li>#{display_note(note)}</li>"
+      html << display_note(note)
     end
     html << "</ul>"
     html << render( :partial => "notes/new", :locals => { :player_id => player.id })

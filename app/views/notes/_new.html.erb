@@ -1,8 +1,8 @@
-<% form_for @note, :url => player_notes_path(:player_id => player_id), :html => { :class => "standard" } do |f| %>
+<% form_for @note, :url => player_notes_path(:player_id => player_id), :html => { :class => "standard new_note" } do |f| %>
 <ul>
   <li>
     <%= f.label :content, "Ajouter une note" %>
-    <%= f.text_area :content, :size => "29x3" %>
+    <%= f.text_area :content, :rows => "3" %>
     <%= f.hidden_field :player_id, :value => player_id %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </li>

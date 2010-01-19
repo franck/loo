@@ -12,11 +12,13 @@ class NotesController < ApplicationController
   end
   
   def create
+    @player = Player.find(params[:note][:player_id])
     @note = Note.new(params[:note])
-    if @note.save
-      flash[:notice] = "Note ajoutée"
+    @note.save
+    respond_to do |format|
+      format.html { redirect_to landscapes_url }
+      format.js
     end
-    redirect_to landscapes_url
   end
   
 end

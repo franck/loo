@@ -1,8 +1,10 @@
 $(function(){
   
-  jQuery.ajaxSetup({ 
+  jQuery.ajaxSetup({
     'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
   });
+
+  $('.new_note').ajaxForm({dataType: 'script', resetForm: true});
   
   $(".info").find(".close").click(function(){
     $(".info").hide();

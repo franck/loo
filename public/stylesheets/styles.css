@@ -20,6 +20,8 @@ table#s4 { width:auto; }
 ul.notes { list-style:none; padding:0; margin:0; }
 ul.notes li { border:1px solid #CCC; margin:5px 0; padding:5px; background:#FFFF99; }
 
+form.new_note textarea { max-width:250px; padding:0; }
+
 .note-info { font-size:0.85em; margin-top:5px; }
 .note-info .player-name { color:#900; font-weight:bold; }
 
