@@ -39,6 +39,7 @@ class UsersController < ApplicationController
   
   def show
     @user = params[:id] ? User.find(params[:id]) : @current_user
+    @note = Note.new
   end
 
   def edit
