@@ -27,6 +27,8 @@ class Player < ActiveRecord::Base
       "nain"
     when "s"
       "homme sauvage"
+    when "e"
+      "elfe noble"
     end
     logger.debug "RACE : #{race} / #{result}"
     return result
