@@ -2,11 +2,12 @@
 
 <table>
   <tr>
-    <th><%= t('loo.users.player_name') %></th>
     <th><%= t('users.email') %></th>
+    <th><%= t('loo.users.player_name') %></th>
   </tr>
   <% for user in @users %>
   <tr>
+    <td><%= link_to user.email, user_path(user) %></td>
     <td>
       <% if user.player %>
         <%= link_to user.player_name, player_path(user.player.id) %>
@@ -14,7 +15,6 @@
         <%= user.player_name %>
       <% end %>
     </td>
-    <td><%= link_to user.email, user_path(user) %></td>
   </tr>
   <% end %>
 </table>

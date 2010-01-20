@@ -4,6 +4,10 @@ class Player < ActiveRecord::Base
   named_scope :last, lambda {|*args| { :limit => (args.first || 1), :order => "created_at desc" }}
   named_scope :position, lambda {|*args| { :conditions => ["pos_x = ? AND pos_y = ?", args[0], args[1]]}}
   
+  def user
+    User.find_by_matricule(matricule)
+  end
+  
   def self.create_or_update(params={})
     player = Player.find_by_matricule(params[:matricule])
     if player

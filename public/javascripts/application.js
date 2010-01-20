@@ -63,6 +63,13 @@ $(function(){
     return false;
   });
   
+  $(".info").draggable({
+      stop: function(event, ui){
+        var table = $("#s4"); 
+        table.data("boxPositionLeft", ui.position.left);
+        table.data("boxPositionTop", ui.position.top);
+      }
+  });
   
   
   $(".info").find(".close").click(function(){
@@ -72,7 +79,14 @@ $(function(){
   
   $("td.player").click(function(){
     $(".info").hide();
-    $(this).find(".info").show();
+    var info = $(this).find(".info");
+    var table = $("#s4");
+    var top = table.data("boxPositionTop") || 150;
+    var left = table.data("boxPositionLeft") || 20;
+    info
+      .css("top", top+"px")
+      .css("left", left+"px")
+      .show();
   });
   
   $(".more-notes").click(function(){

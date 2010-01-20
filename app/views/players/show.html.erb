@@ -7,7 +7,13 @@
   <li>Position : <%= "#{@player.pos_x ? @player.pos_x : "?" } / #{@player.pos_y ? @player.pos_y : "?"}" %></li>
 </ul>
 
+<% if @player.user %>
+<%= display_map(Landscape.first, @player.user, @player.user.perception) %>
+<% end %>
+
 <h2>Notes</h2>
+
+<% if @notes.size > 0 %>
 
 <%= will_paginate @notes %>
 
@@ -17,3 +23,6 @@
   <% end %>  
 </ul>
 
+<% else %>
+<p>Aucune note</p>
+<% end %>
