@@ -81,7 +81,7 @@ $(function(){
     $(".info").hide();
     var info = $(this).find(".info");
     var table = $("#s4");
-    var top = table.data("boxPositionTop") || 150;
+    var top = table.data("boxPositionTop") || 50;
     var left = table.data("boxPositionLeft") || 20;
     info
       .css("top", top+"px")
