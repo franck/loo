@@ -2,11 +2,11 @@
 <ul>
   <li>
     <%= f.label :content, "Ajouter une note" %>
-    <%= f.text_area :content, :rows => "3" %>
+    <%= f.text_area :content, :rows => "2" %>
     <%= f.hidden_field :player_id, :value => player_id %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </li>
-  <li>
+  <li class="submit">
     <%= f.submit "Ajouter" %>
   </li>
 </ul>  

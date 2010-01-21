@@ -27,3 +27,6 @@ form.new_note textarea { max-width:250px; padding:0; }
 .note-info .player-name { color:#900; font-weight:bold; }
 
 .red { color:red; }
+
+form.new_note { margin-top:5px; }
+form.new_note ul li { margin:0; }

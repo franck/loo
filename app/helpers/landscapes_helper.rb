@@ -46,6 +46,7 @@ module LandscapesHelper
     html << "<a class='close' href='#'>[ X ]</a>"
     html << "<p><strong>#{link_to(player.name, player_url(player))} (#{player.matricule})</strong></p>"
     html << "<p>Mis à jour : #{l(player.updated_at, :formats => :default)}</p>"
+    html << render( :partial => "notes/new", :locals => { :player_id => player.id })
     html << "<ul class='notes'>"
     notes = Note.find(:all, :conditions => ["player_id = ?", player.id], :limit => 5, :order => "created_at desc")
     logger.debug "NOTES : #{notes.inspect}"
@@ -53,7 +54,6 @@ module LandscapesHelper
       html << display_note(note, true)
     end
     html << "</ul>"
-    html << render( :partial => "notes/new", :locals => { :player_id => player.id })
     html << "</div>"
     return html
   end
