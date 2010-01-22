@@ -8,7 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   map.filter "locale"
 
   map.resource :user_session
-  map.root :controller => "landscapes"
+  map.root :controller => "landscapes", :action => "index"
   
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"

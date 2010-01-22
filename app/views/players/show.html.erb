@@ -5,6 +5,7 @@
 <ul>
   <li>Dernière mise à jour : <%= l(@player.updated_at, :format => :default)%></li>
   <li>Position : <%= "#{@player.pos_x ? @player.pos_x : "?" } / #{@player.pos_y ? @player.pos_y : "?"}" %></li>
+  <li>Race : <%= @player.race %></li>
 </ul>
 
 <% if @player.user %>
