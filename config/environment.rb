@@ -1,4 +1,4 @@
-ENV['GEM_PATH'] = File.expand_path('~/.gem') + ':/usr/lib/ruby/gems/1.8'
+ENV['GEM_PATH'] = File.expand_path('~/.gem') + ':/usr/lib/ruby/gems/1.8:/opt/ruby-enterprise/lib'
 
 # Be sure to restart your server when you modify this file
 # Specifies gem version of Rails to use when vendor/rails is not present

@@ -31,6 +31,10 @@ class Player < ActiveRecord::Base
       "elfe noble"
     when "i"
       "elfe des lunes"
+    when "f"
+      "lutin"
+    when "a"
+      "familier"
     end
     logger.debug "RACE : #{race} / #{result}"
     return result
