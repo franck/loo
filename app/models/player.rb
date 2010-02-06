@@ -35,6 +35,8 @@ class Player < ActiveRecord::Base
       "lutin"
     when "a"
       "familier"
+    when "g"
+      "geant"
     end
     logger.debug "RACE : #{race} / #{result}"
     return result
