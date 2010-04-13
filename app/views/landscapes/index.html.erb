@@ -3,6 +3,24 @@
 <div class="loader">EN COURS DE TRAITEMENT ...</div>
 
 <h1><%= @landscape.name %></h1>
-<p><%= link_to("Mettre à jour votre vue", edit_sight_user_path(current_user)) %></p>
+<p><%= link_to("Mettre à jour votre vue", edit_sight_user_path(@user)) %></p>
 
-<%= display_map(@landscape, current_user) %>
+
+
+<form method="get" action="/landscapes">
+<label>Voir à la place de</label>
+<select name="user">
+  <% for user in User.all %>
+    <% if user.player %>
+      <% if user.id.to_s == params[:user] %>
+        <option value="<%= user.id %>" selected="selected"><%= user.player.name %></option>
+      <% else %>
+        <option value="<%= user.id %>"><%= user.player.name %></option>
+      <% end %>
+    <% end %>
+  <% end %>
+</select>
+<input type="submit" value="Ok" />
+</form>
+
+<%= display_map(@landscape, @user) %>

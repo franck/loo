@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   
   def access_denied
     flash[:error] = t('authlogic.flash.access_denied')
-    redirect_back_or_default login_url
+    redirect_to login_url
   end
   
   def current_user_session
