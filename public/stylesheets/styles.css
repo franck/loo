@@ -21,6 +21,9 @@ table#s4 { width:auto; }
 /* route */
 .t36, .t37, .t38, .t39, .t40, .t41, .t42, .t44, .t45, .t46, .t47, .t48, .t215 { background: #AE5C10; }
 
+/* montagne¨*/
+.t134, .t135, .t136, .t137, .t138, .t142, .t143, .t144, .t145, .t146 { background:url("/images/montagne.gif") no-repeat; }
+
 .info { max-width:250px; display:none; position:fixed; top:20px; right:20px; background:#FFF; border:1px solid #000; padding:10px; text-align:left; color:#000;}
 .info p { margin:0; }
 .info .close { float:right; text-decoration:none; }
